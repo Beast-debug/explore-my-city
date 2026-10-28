@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Explore My City | Bengaluru</title>
+
+  <meta
+    name="description"
+    content="Discover Bengaluru attractions, explore local places, and plan your own city trip."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="logo">Explore<span>MyCity</span></a>
+
+      <nav>
+        <a href="#destinations">Destinations</a>
+        <a href="#trip-planner">Plan Your Trip</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">YOUR CITY, YOUR STORY</p>
+
+        <h1>Discover the best of <span>Bengaluru.</span></h1>
+
+        <p class="hero-description">
+          From peaceful gardens and historic landmarks to local food
+          and shopping streets, explore Bengaluru your way.
+        </p>
+
+        <a href="#destinations" class="primary-link">
+          Explore destinations ↓
+        </a>
+      </div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section id="destinations" class="section container">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">EXPLORE BENGALURU</p>
+          <h2>Places worth discovering</h2>
+
+          <p class="section-description">
+            Find your next stop and build your own itinerary.
+          </p>
+        </div>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="search-row">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search places, categories..."
+          aria-label="Search destinations"
+        >
+
+        <button type="button" id="searchBtn" class="primary-btn">
+          Search
+        </button>
+      </div>
+
+      <!-- CATEGORY FILTERS -->
+      <div class="filter-list" aria-label="Filter destinations">
+
+        <button class="filter active" data-category="All" type="button">
+          All
+        </button>
+
+        <button class="filter" data-category="Nature" type="button">
+          Nature
+        </button>
+
+        <button class="filter" data-category="History" type="button">
+          History
+        </button>
+
+        <button class="filter" data-category="Food" type="button">
+          Food
+        </button>
+
+        <button class="filter" data-category="Culture" type="button">
+          Culture
+        </button>
+
+        <button class="filter" data-category="Education" type="button">
+          Education
+        </button>
+
+        <button class="filter" data-category="Shopping" type="button">
+          Shopping
+        </button>
+
+      </div>
+
+      <p id="resultCount" class="result-count" aria-live="polite">
+        Loading destinations...
+      </p>
+
+      <div id="placesGrid" class="places-grid">
+        <p class="empty">Loading destinations...</p>
+      </div>
+
+    </section>
+
+    <!-- TRIP PLANNER -->
+    <section id="trip-planner" class="trip-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR PERSONAL ITINERARY</p>
+            <h2>Plan your trip</h2>
+
+            <p class="section-description">
+              Select destinations and estimate your budget.
+            </p>
+          </div>
+        </div>
+
+        <!-- SAVE TRIP PANEL -->
+        <div class="planner-panel">
+
+          <h3>Save your itinerary</h3>
+
+          <p class="section-description">
+            Give your trip a name and save it for later.
+          </p>
+
+          <div class="save-trip-controls">
+
+            <label for="tripName">Trip name</label>
+
+            <div class="planner-actions">
+              <input
+                type="text"
+                id="tripName"
+                placeholder="e.g. Weekend Bengaluru Trip"
+                value="My Bengaluru Trip"
+                maxlength="100"
+              >
+
+              <button
+                type="button"
+                id="saveTripBtn"
+                class="primary-btn"
+              >
+                Save Trip
+              </button>
+            </div>
+
+            <p
+              id="tripMessage"
+              class="trip-message"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+          </div>
+
+          <!-- SAVED TRIPS -->
+          <div class="saved-trips-section">
+
+            <label for="savedTripsSelect">Your saved trips</label>
+
+            <div class="planner-actions">
+              <select id="savedTripsSelect">
+                <option value="">Select a saved trip</option>
+              </select>
+
+              <button
+                type="button"
+                id="loadTripBtn"
+                class="secondary-btn"
+              >
+                Load Trip
+              </button>
+            </div>
+
+            <div class="planner-actions saved-trip-actions">
+
+              <button
+                type="button"
+                id="editTripBtn"
+                class="secondary-btn"
+              >
+                Edit Selected Trip
+              </button>
+
+              <button
+                type="button"
+                id="deleteTripBtn"
+                class="delete-trip-btn"
+              >
+                Delete Selected Trip
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CURRENT TRIP -->
+        <div class="planner-panel current-trip">
+
+          <div class="trip-heading">
+            <div>
+              <h3>Your selected destinations</h3>
+
+              <p class="section-description">
+                Add or remove places before saving your itinerary.
+              </p>
+            </div>
+
+            <button type="button" id="clearTrip" class="text-btn">
+              Clear current trip
+            </button>
+          </div>
+
+          <div id="tripList" class="trip-list">
+            <p class="empty">
+              Your trip is empty. Add a destination to begin!
+            </p>
+          </div>
+
+          <!-- BUDGET SUMMARY -->
+          <div class="trip-summary">
+
+            <div class="summary-item">
+              <span>Places selected</span>
+              <strong id="tripCount">0</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Estimated total</span>
+              <strong id="tripCost">₹0</strong>
+            </div>
+
+          </div>
+
+          <p class="budget-note">
+            Estimated costs are indicative and may vary by destination
+            and personal spending.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+
+      <a href="#" class="logo">Explore<span>MyCity</span></a>
+
+      <p>Discover Bengaluru, one destination at a time.</p>
+
+      <p class="copyright">
+        © 2026 Explore My City · Bengaluru
+      </p>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
